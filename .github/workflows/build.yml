@@ -34,7 +34,9 @@ jobs:
         creds: ${{ secrets.AZURE_CREDENTIALS }}  # Azure Service Principal JSON
 
     - name: Deploy to Azure WebApp
-      uses: azure/webapps-deploy@v2
-      with:
-        app-name: 'abhinayjava'                   # App Service name
-        slot-na
+  uses: azure/webapps-deploy@v2
+  with:
+    app-name: 'abhinayjava'        # App Service name
+    slot-name: 'production'        # <-- fix typo
+    package: 'target/*.war'        # WAR artifact
+
